@@ -1,0 +1,64 @@
+<html>
+<head>
+  <title> Online calculator </title>
+  <link rel="stylesheet" type="text/css" href="Styles/style.css">
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,100,500' rel='stylesheet' type='text/css'>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+  <script type="text/javascript" src="Script/script.js"></script>
+  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/mathjs/3.2.1/math.min.js"></script>
+
+</head>
+<body>
+  <div id="wraper">
+    <!--Show result and expression-->
+    <div id="resultArea">
+      <input type = "text" name = "show" id = "txtExpression" readonly="true" />
+    </div>
+    <!--Show function button: Sin,Cos,Tan-->
+    <div id="functionsButton">
+      <button type="button" class="btn function" value = "sqrt" onclick="getSpecialCharacter(this)">&#x221a;</button>
+      <button type="button" class="btn function" value = "sin" onclick="getSpecialCharacter(this)" >Sin</button>
+      <button type="button" class="btn function" value = "^2" onclick="getCharacter(this)">x<sup>2</button>
+      <button type="button" class="btn function" value= "cos"onclick="getSpecialCharacter(this)">Cos</button>
+      <button type="button" class="btn function" value = "^3"onclick="getCharacter(this)">x<sup>3</button>
+      <button type="button" class="btn function" value = "tan"onclick="getSpecialCharacter(this)" >Tan</button>
+      <button type="button" class="btn function" value = "(" onclick="getCharacter(this)">(</button>
+      <button type="button" class="btn function" value = "round" onclick = "round()">Round</button>
+      <button type="button" class="btn function" value = ")"onclick="getCharacter(this)">)</button>
+      <button type="button" class="btn function" value = "/100" onclick="getCharacter(this)">%</button>
+    </div>
+    <!--Numpad: inclue delete button, clear button and number buttons -->
+    <div id="numpad_buttons">
+      <div id="clearFunction">
+        <button type="button" class="btn" onclick="backSpace()">&#8592;</button>
+        <button type="button" class="btn" id="clearAll" onclick="clearAll()" >Clear</button>
+      </div>
+
+      <div id="numpad">
+        <button type="button" class="btn numpad" value = "7" onclick="getCharacter(this)">7</button>
+    		<button type="button" class="btn numpad" value = "8" onclick="getCharacter(this)">8</button>
+    		<button type="button" class="btn numpad" value = "9" onclick="getCharacter(this)">9</button>
+    		<button type="button" class="btn numpad" value = "4" onclick="getCharacter(this)">4</button>
+    		<button type="button" class="btn numpad" value = "5" onclick="getCharacter(this)">5</button>
+    		<button type="button" class="btn numpad" value = "6" onclick="getCharacter(this)">6</button>
+    		<button type="button" class="btn numpad" value = "1" onclick="getCharacter(this)">1</button>
+    		<button type="button" class="btn numpad" value = "2" onclick="getCharacter(this)">2</button>
+    		<button type="button" class="btn numpad" value = "3" onclick="getCharacter(this)">3</button>
+    		<button type="button" class="btn" id="zero" value = "0" onclick="getCharacter(this)">0</button>
+    		<button type="button" class="btn numpad" value = "." onclick="getCharacter(this)">.</button>
+      </div>
+    </div>
+
+    <div id="operatorButton">
+      <button type="button" class="btn operator" value = "/" onclick="getCharacter(this)">&divide;</button>
+      <button type="button" class="btn operator" value = "*" onclick="getCharacter(this)">&times;</button>
+      <button type="button" class="btn operator" value = "-" onclick="getCharacter(this)">-</button>
+    	<button type="button" class="btn operator" value = "+" onclick="getCharacter(this)">+</button>
+      <button type="button" class="btn operator" onclick="calculate(document.getElementById('txtExpression').value)">=</button>
+    </div>
+  </div>
+</body>
+</html>
